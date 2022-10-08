@@ -29,7 +29,8 @@ def _run_snallygaster_command(domain: str) -> Any:
     with subprocess.Popen(command, stdout=subprocess.PIPE) as proc:
         proc.wait()
         logger.info('dnsReaper finished')
-        return json.loads(proc.stdout.read())
+        output: Any = json.loads(proc.stdout.read())  # type: ignore
+        return output
 
 
 class SnallyGasterAgent(agent.Agent, vuln_mixin.AgentReportVulnMixin, persist_mixin.AgentPersistMixin):
@@ -53,9 +54,9 @@ class SnallyGasterAgent(agent.Agent, vuln_mixin.AgentReportVulnMixin, persist_mi
         """Emit findings as a vulnerability"""
         for finding in findings:
             technical_detail = f"""```{finding}```"""
-            self.report_vulnerability(entry=kb.KB.SUBDOMAIN_TAKEOVER,
+            self.report_vulnerability(entry=kb.KB.WEB_GENERIC,
                                       technical_detail=technical_detail,
-                                      risk_rating=vuln_mixin.RiskRating.LOW)
+                                      risk_rating=vuln_mixin.RiskRating.INFO)
 
 
 if __name__ == '__main__':
