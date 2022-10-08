@@ -53,7 +53,7 @@ class SnallyGasterAgent(agent.Agent, vuln_mixin.AgentReportVulnMixin, persist_mi
         """Emit findings as a vulnerability"""
         for finding in findings:
             technical_detail = f"""```{finding}```"""
-            self.report_vulnerability(entry=kb.KB.WEB_GENERIC,
+            self.report_vulnerability(entry=kb.KB.SUBDOMAIN_TAKEOVER,
                                       technical_detail=technical_detail,
                                       risk_rating=vuln_mixin.RiskRating.LOW)
 

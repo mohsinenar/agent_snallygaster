@@ -4,3 +4,10 @@ pytest
 coverage
 pytest-cov
 pytest_mock
+mypy
+types-click
+types-protobuf
+types-redis
+types-requests
+types-urllib3
+typing_extensions
