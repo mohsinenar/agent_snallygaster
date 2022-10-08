@@ -26,9 +26,10 @@ logger.setLevel('DEBUG')
 def _run_snallygaster_command(domain: str) -> Any:
     command = ['snallygaster', domain, '-j', '-n']
     logger.info('running dnsReaper with command "%s"', ' '.join(command))
-    proc = subprocess.Popen(command, stdout=subprocess.PIPE)
-    logger.info('dnsReaper finished')
-    return json.loads(proc.stdout.read())
+    with subprocess.Popen(command, stdout=subprocess.PIPE) as proc:
+        proc.wait()
+        logger.info('dnsReaper finished')
+        return json.loads(proc.stdout.read())
 
 
 class SnallyGasterAgent(agent.Agent, vuln_mixin.AgentReportVulnMixin, persist_mixin.AgentPersistMixin):

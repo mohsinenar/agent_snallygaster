@@ -1,6 +1,6 @@
 """Unittests for agent."""
 import json
-from typing import List, Union, Dict, IO
+from typing import List, Union, Dict
 
 from ostorlab.agent.message import message as msg
 from pytest_mock import plugin
