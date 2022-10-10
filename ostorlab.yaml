@@ -26,7 +26,7 @@ description: |
     ```  
      2. Clone this repository.  
     ```shell  
-    git clone https://github.com/mohsinenar/agent_dns_reaper.git && cd agent_snallygaster 
+    git clone https://github.com/mohsinenar/agent_snallygaster.git && cd agent_snallygaster 
     ```  
      3. Build the agent image using ostorlab cli.  
      ```shell  
