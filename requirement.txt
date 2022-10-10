@@ -1,2 +1,6 @@
 ostorlab[agent]
 rich
+snallygaster
+urllib3
+beautifulsoup4
+dnspython
